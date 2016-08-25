@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+    <title>example</title>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
+            background: rgba(119, 129, 149, 0.8);
+        }
+        .container label {
+            font-weight: normal;
+        }
+        .table-label {
+            background-color: #F37070;
+            border-radius: 4px;
+            padding: 3px 12px;
+            color: #fff;
+        } 
+    </style>
+</head>
+<body>
+    <h1 align="center">@Vue Component - vc-table</h1>
+    <hr>
+
+    <div id="app" class="container">
+
+        <vc-table
+            tpl="#vc-table-component-tpl"
+            :name="name"
+            :columns="columns"
+            :columns-map="columnsMap"
+            :data="data"
+            :data-plus="dataPlus"
+            :title="title"
+            :title-align="titleAlign"
+            :show-table-header="showTableHeader"
+            :export-label="exportLabel"
+            :exportable="exportable"
+            :searchable="searchable"
+            :sortable="sortable"
+            :table-fixed="tableFixed"
+        >
+        </vc-table>
+
+        <div class="form-group">
+            <label>配置组件的title</label>
+            <input type="text" class="form-control" placeholder="title" v-model="title" />
+        </div>
+
+        <div class="form-group">
+            <div>配置table标题对齐方式(默认: 'center')</div>
+            <label><input type="radio" value="left" name="titleAlign" v-model="titleAlign">左</label>
+            <label><input type="radio" value="center" name="titleAlign" v-model="titleAlign">中</label>
+            <label><input type="radio" value="right" name="titleAlign" v-model="titleAlign">右</label>
+        </div>
+
+        <div class="form-group">
+            <div>配置表格可搜索(默认: true)</div>
+            <label><input type="radio" :value="bools.true" name="searchable" v-model="searchable">是</label>
+            <label><input type="radio" :value="bools.false" name="searchable" v-model="searchable">否</label>
+        </div>
+
+        <div class="form-group">
+            <div>配置组件是否显示导出(默认: false)</div>
+            <label><input type="radio" :value="bools.true" name="exportable" v-model="exportable">是</label>
+            <label><input type="radio" :value="bools.false" name="exportable" v-model="exportable">否</label>
+        </div>
+
+        <div class="form-group">
+            <label>配置组件的exportLabel</label>
+            <input type="text" class="form-control" exportLabel="exportLabel" v-model="exportLabel" />
+        </div>
+
+        <div class="form-group">
+            <div>配置显示表头(默认: false)</div>
+            <label><input type="radio" :value="bools.true" name="showTableHeader" v-model="showTableHeader">是</label>
+            <label><input type="radio" :value="bools.false" name="showTableHeader" v-model="showTableHeader">否</label>
+        </div>
+
+        <div class="form-group">
+            <div>配置组件是否可排序(默认: true)</div>
+            <label><input type="radio" :value="bools.true" name="sortable" v-model="sortable">是</label>
+            <label><input type="radio" :value="bools.false" name="sortable" v-model="sortable">否</label>
+        </div>
+
+        <div class="form-group">
+            <div>配置表格table-layout: fixed(默认: true)</div>
+            <label><input type="radio" :value="bools.true" name="tableFixed" v-model="tableFixed">是</label>
+            <label><input type="radio" :value="bools.false" name="tableFixed" v-model="tableFixed">否</label>
+        </div>
+
+    </div>
+    <template type="text/v-template" id="vc-table-component-tpl">
+        <div class="vc-table-container">
+            <form class="search-area pull-left" v-if="searchable">
+                <label>筛选:</label>
+                <input type="text" class="vc-table-filter" name="query" v-model="filterKey" />
+            </form>
+            <div class="vc-table-title" :style="{ 'text-align': titleAlign }" :class="{'title-only': !searchable && !exportable }">{{ title }}</div>
+            <div class="export-area pull-right" v-if="exportable">
+                <button class="btn btn-info btn-sm pull-right" @click="exportSortArgs">导出数据</button>
+            </div>
+            <table class="vc-table table table-striped table-hover" :class="{ 'vc-table-fixed': tableFixed, 'title-only': (!searchable && !exportable) }">
+                <thead v-if="showTableHeader">
+                    <tr @click="handleClick">
+                        <th v-for="key in columns"
+                            @click="sortBy(key)"
+                            :class="{ active: sortKey == key }">
+                            {{ key | zhCN }}
+                            <span class="arrow" v-if="sortable"
+                                :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+                            </span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 制作表格的关键，行循环，再填每一行的列, 不可用内置index做排序!故数据源必须自带index -->
+                    <tr v-for="
+                        (index, entry) in data
+                        | filterBy filterKey 
+                        | newOrderBy sortKey sortOrders[sortKey]" 
+                        transition="staggered"
+                        stagger="5"
+                    >
+                        <td v-for="key in columns">
+                            <template v-if="key === 'c0'">
+                                <span @click="handleClick($index, index, data)" class="table-label">{{ entry[key] }}(class & 响应点击)</span>
+                            </template>
+                            <template v-if="key === 'c1'">
+                                <span>{{ entry[key] }}(字符串类型)</span>
+                            </template>
+                            <template v-if="key === 'c2'">
+                                <span>{{ entry[key] }}%(加%号)</span>
+                            </template>
+                            <template v-if="key === 'c3'">
+                                <button class="btn btn-info btn-xs" @click="handleClick($index, index, key)">按钮1</button>
+                                <button class="btn btn-info btn-xs" @click="handleClick($index, index, '按钮2')">按钮2</button>
+                            </template>
+                            <template v-if="key === 'c4'">
+                                <span>{{ entry[key] | round 2 true }}(两位小数)</span>
+                            </template>
+                            <template v-if="key === 'c5'">
+                                <a href="http://github.com/iwaimai-bi-fe/">{{ entry[key] }}(渲染成a标签)</a>
+                            </template>
+                            <template v-if="key !== 'c0' && key !== 'c1' && key !== 'c2' && key !== 'c3' && key !== 'c4' && key !== 'c5'">
+                                <span>{{ entry[key] }}</span>
+                            </template>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
+    <script src='../dist/example.js'></script>
+</body>
+</html>
