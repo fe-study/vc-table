@@ -5,9 +5,9 @@ import vueAnimatedList from './vue-animated-list'
 Vue.use(vueAnimatedList)
 
 new Vue({
-	el: '#app',
-	data () {
-		return {
+    el: '#app',
+    data () {
+        return {
             bools: {
                 'true': true,
                 'false': false
@@ -16,7 +16,7 @@ new Vue({
             name: "name",
             dataPlus: {},
 
-            columns: ['c0', 'c1', 'c2', 'c3', 'c4', 'c5', 'c7', 'c9'],
+            columns: ['c0', 'c1', 'c2', 'c3', 'c4', 'c5', 'c7', 'c8'],
             columnsMap: {
                 'c0': '中文0',
                 'c1': '中文1',
@@ -30,16 +30,18 @@ new Vue({
                 'c9': '中文9'
             },
             data: {},
-            title: "表头已转换为中文, 按钮点击后请查看控制台",
+            title: "表格的标题",
             titleAlign: "center",
             showTableHeader: true, 
             exportLabel:"导出",
             exportable: true,
             searchable: true,
+            filterKey: 'vim',
+            filterLabel: '过滤',
             sortable: true,
             tableFixed: false
-		}
-	},
+        }
+    },
     created () {
         this.data = [{
             'c0': 0,
@@ -50,7 +52,7 @@ new Vue({
             'c5': 2,
             'c6': 4,
             'c7': 7,
-            'c8': 5,
+            'c8': 'vim',
             'c9': 9
         }, {
             'c0': 1,
@@ -61,7 +63,7 @@ new Vue({
             'c5': 5,
             'c6': 2,
             'c7': 7,
-            'c8': 1,
+            'c8': 'vue',
             'c9': 9
         }, {
             'c0': 2,
@@ -72,7 +74,7 @@ new Vue({
             'c5': 7,
             'c6': 6,
             'c7': 8,
-            'c8': 4,
+            'c8': 'components',
             'c9': 9
         }, {
             'c0': 3,
@@ -83,7 +85,7 @@ new Vue({
             'c5': 2,
             'c6': 7,
             'c7': 7,
-            'c8': 9,
+            'c8': 'vc-table',
             'c9': 9
         }, {
             'c0': 4,
@@ -94,7 +96,7 @@ new Vue({
             'c5': 2,
             'c6': 1,
             'c7': 7,
-            'c8': 2,
+            'c8': 'mvvm',
             'c9': 9
         }, {
             'c0': 5,
@@ -105,7 +107,7 @@ new Vue({
             'c5': 5,
             'c6': 6,
             'c7': 7,
-            'c8': 1,
+            'c8': 'bootstrap',
             'c9': 9
         }, {
             'c0': 6,
@@ -116,12 +118,12 @@ new Vue({
             'c5': 7,
             'c6': 1,
             'c7': 7,
-            'c8': 5,
+            'c8': 'hhkb',
             'c9': 9
         }]
 
     },
-	components: {
+    components: {
         vcTable
     },
     events: {

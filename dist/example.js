@@ -11207,7 +11207,7 @@ function _interopRequireDefault2(obj) { return obj && obj.__esModule ? obj : { d
 
 
       // module
-      exports.push([module.i, "/**\n * vc-table.less\n * Mail   : pengrui@iwaimai.baidu.com\n */\n.vc-table-container {\n  position: relative;\n}\n.vc-table-container .search-area,\n.vc-table-container .export-area {\n  display: inline-block;\n  margin-bottom: 10px;\n  z-index: 2;\n  position: relative;\n}\n.vc-table-container .vc-table-title {\n  position: absolute;\n  left: 50%;\n  width: 100%;\n  -webkit-transform: translate(-50%, 0);\n  transform: translate(-50%, 0);\n  height: 30px;\n  line-height: 30px;\n  padding: 0 250px;\n}\n.vc-table-container .vc-table-title.title-only {\n  top: -40px;\n  padding: 0;\n}\n.vc-table-container .vc-table-title.title-align-left {\n  text-align: left;\n}\n.vc-table-container .vc-table-title.title-align-center {\n  text-align: center;\n}\n.vc-table-container .vc-table-title.title-align-right {\n  text-align: right;\n}\n.vc-table-container .vc-table-filter {\n  margin-left: 5px;\n  height: 30px;\n  padding: 4px 8px;\n  -wekit-box-shadow: none;\n  box-shadow: none;\n  font-size: 14px;\n  line-height: 1.428571429;\n  color: #555555;\n  vertical-align: middle;\n  background-color: #ffffff;\n  background-image: none;\n  border: 1px solid #cccccc;\n  border-radius: 4px;\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n}\n.vc-table-container .vc-table-filter:focus {\n  border-color: #46c3c1;\n  box-shadow: inset 0 1px 1px rgba(102, 175, 233, 0.1), 0 0 5px rgba(102, 175, 233, 0.3);\n}\ntable.vc-table {\n  border-radius: 3px;\n  text-align: center;\n  border: 1px solid #ddd;\n}\ntable.vc-table.title-only {\n  margin-top: 40px;\n}\ntable.vc-table.vc-table-fixed {\n  table-layout: fixed;\n}\ntable.vc-table th {\n  cursor: pointer;\n  text-align: center;\n  /* override bootstrap */\n  position: relative;\n  border-bottom: none;\n}\ntable.vc-table th.hide {\n  display: none;\n}\ntable.vc-table tr:hover {\n  cursor: pointer;\n}\ntable.vc-table td {\n  background-color: #fff;\n  padding: 4px;\n  position: relative;\n}\ntable.vc-table td span.top1,\ntable.vc-table td span.top2,\ntable.vc-table td span.top3 {\n  background-color: #F37070;\n  border-radius: 4px;\n  padding: 3px 12px;\n  color: #fff;\n}\ntable.vc-table td span.topN {\n  /* 4位及以后 */\n  background-color: #e6e2e2;\n  border-radius: 4px;\n  padding: 3px 12px;\n}\ntable.vc-table th.active {\n  background-color: inherit;\n}\ntable.vc-table th.active .arrow {\n  /* 激活的排序标志 */\n  opacity: 1;\n  border-bottom-color: #28d63d;\n  border-top-color: #28d63d;\n}\ntable.vc-table .arrow {\n  display: inline-block;\n  vertical-align: middle;\n  width: 0;\n  height: 0;\n  margin-left: 5px;\n  opacity: 0.66;\n}\ntable.vc-table .arrow.asc {\n  border-left: 4px solid transparent;\n  border-right: 4px solid transparent;\n  border-bottom: 4px solid #666;\n}\ntable.vc-table .arrow.dsc {\n  border-left: 4px solid transparent;\n  border-right: 4px solid transparent;\n  border-top: 4px solid #666;\n}\n/* filterBy渐隐效果 */\n.staggered-transition {\n  -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);\n  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);\n  overflow: hidden;\n  margin: 0;\n  height: 20px;\n}\n.staggered-enter,\n.staggered-leave {\n  opacity: 0;\n  height: 0;\n}\n/* 暂未实现 applied during enter/leave transition */\n/* .staggered-enter-active, .staggered-leave-active { */\n/*   transition: opacity .5s ease;  */\n/* } */\n/* v-for orderBy 自动动画 applied during moving transition */\n.staggered-move {\n  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.55, 0, 0.1, 1);\n  transition: -webkit-transform 0.8s cubic-bezier(0.55, 0, 0.1, 1);\n  transition: transform 0.8s cubic-bezier(0.55, 0, 0.1, 1);\n  transition: transform 0.8s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.8s cubic-bezier(0.55, 0, 0.1, 1);\n}\n.vc-fade-transition {\n  display: inline-block;\n}\n.vc-fade-enter {\n  -webkit-animation: fadeinT .5s;\n          animation: fadeinT .5s;\n}\n.vc-fade-leave {\n  -webkit-animation: fadeoutT .5s;\n          animation: fadeoutT .5s;\n}\n/* 淡入-从上 */\n@-webkit-keyframes fadeinT {\n  0% {\n    opacity: 0;\n    -webkit-transform: translateY(-20px);\n  }\n  100% {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n  }\n}\n@keyframes fadeinT {\n  0% {\n    opacity: 0;\n    -webkit-transform: translateY(-20px);\n            transform: translateY(-20px);\n  }\n  100% {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n  }\n}\n/* 淡出-向上 */\n@-webkit-keyframes fadeoutT {\n  0% {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n  }\n  100% {\n    opacity: 0;\n    -webkit-transform: translateY(-20px);\n  }\n}\n@keyframes fadeoutT {\n  0% {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n  }\n  100% {\n    opacity: 0;\n    -webkit-transform: translateY(-20px);\n            transform: translateY(-20px);\n  }\n}\n", ""]);
+      exports.push([module.i, ".vc-table-container {\n  position: relative;\n}\n.vc-table-container .search-area,\n.vc-table-container .export-area {\n  display: inline-block;\n  margin-bottom: 10px;\n  z-index: 2;\n  position: relative;\n}\n.vc-table-container .search-area .input-box {\n  display: inline-block;\n  position: relative;\n}\n.vc-table-container .search-area .input-box:hover .clear-it {\n  visibility: visible;\n}\n.vc-table-container .search-area .input-box .clear-it {\n  visibility: hidden;\n  position: absolute;\n  top: 50%;\n  right: 6px;\n  -webkit-transform: translateY(-50%);\n  transform: translateY(-50%);\n  opacity: .3;\n}\n.vc-table-container .vc-table-title {\n  position: absolute;\n  left: 50%;\n  width: 100%;\n  -webkit-transform: translate(-50%, 0);\n  transform: translate(-50%, 0);\n  height: 30px;\n  line-height: 30px;\n  padding: 0 250px;\n}\n.vc-table-container .vc-table-title.title-only {\n  top: -40px;\n  padding: 0;\n}\n.vc-table-container .vc-table-title.title-align-left {\n  text-align: left;\n}\n.vc-table-container .vc-table-title.title-align-center {\n  text-align: center;\n}\n.vc-table-container .vc-table-title.title-align-right {\n  text-align: right;\n}\n.vc-table-container .vc-table-filter {\n  margin-left: 5px;\n  height: 30px;\n  padding: 4px 8px;\n  -wekit-box-shadow: none;\n  box-shadow: none;\n  font-size: 14px;\n  line-height: 1.428571429;\n  color: #555555;\n  vertical-align: middle;\n  background-color: #ffffff;\n  background-image: none;\n  border: 1px solid #cccccc;\n  border-radius: 4px;\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;\n}\n.vc-table-container .vc-table-filter:focus {\n  border-color: #46c3c1;\n  box-shadow: inset 0 1px 1px rgba(102, 175, 233, 0.1), 0 0 5px rgba(102, 175, 233, 0.3);\n}\ntable.vc-table {\n  border-radius: 3px;\n  text-align: center;\n  border: 1px solid #ddd;\n}\ntable.vc-table.title-only {\n  margin-top: 40px;\n}\ntable.vc-table.vc-table-fixed {\n  table-layout: fixed;\n}\ntable.vc-table th {\n  cursor: pointer;\n  text-align: center;\n  /* override bootstrap */\n  position: relative;\n  border-bottom: none;\n}\ntable.vc-table th.hide {\n  display: none;\n}\ntable.vc-table tr:hover {\n  cursor: pointer;\n}\ntable.vc-table td {\n  padding: 4px;\n  position: relative;\n}\ntable.vc-table td span.top1,\ntable.vc-table td span.top2,\ntable.vc-table td span.top3 {\n  background-color: #F37070;\n  border-radius: 4px;\n  padding: 3px 12px;\n  color: #fff;\n}\ntable.vc-table td span.topN {\n  /* 4位及以后 */\n  background-color: #e6e2e2;\n  border-radius: 4px;\n  padding: 3px 12px;\n}\ntable.vc-table th.active {\n  background-color: inherit;\n}\ntable.vc-table th.active .arrow {\n  /* 激活的排序标志 */\n  opacity: 1;\n  border-bottom-color: #28d63d;\n  border-top-color: #28d63d;\n}\ntable.vc-table .arrow {\n  display: inline-block;\n  vertical-align: middle;\n  width: 0;\n  height: 0;\n  margin-left: 5px;\n  opacity: 0.66;\n}\ntable.vc-table .arrow.asc {\n  border-left: 4px solid transparent;\n  border-right: 4px solid transparent;\n  border-bottom: 4px solid #666;\n}\ntable.vc-table .arrow.dsc {\n  border-left: 4px solid transparent;\n  border-right: 4px solid transparent;\n  border-top: 4px solid #666;\n}\n/* filterBy渐隐效果 */\n.staggered-transition {\n  -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);\n  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);\n  overflow: hidden;\n  margin: 0;\n  height: 20px;\n}\n.staggered-enter,\n.staggered-leave {\n  opacity: 0;\n  height: 0;\n}\n/* 暂未实现 applied during enter/leave transition */\n/* .staggered-enter-active, .staggered-leave-active { */\n/*   transition: opacity .5s ease;  */\n/* } */\n/* v-for orderBy 自动动画 applied during moving transition */\n.staggered-move {\n  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.55, 0, 0.1, 1);\n  transition: -webkit-transform 0.8s cubic-bezier(0.55, 0, 0.1, 1);\n  transition: transform 0.8s cubic-bezier(0.55, 0, 0.1, 1);\n  transition: transform 0.8s cubic-bezier(0.55, 0, 0.1, 1), -webkit-transform 0.8s cubic-bezier(0.55, 0, 0.1, 1);\n}\n.vc-fade-transition {\n  display: inline-block;\n}\n.vc-fade-enter {\n  -webkit-animation: fadeinT .5s;\n          animation: fadeinT .5s;\n}\n.vc-fade-leave {\n  -webkit-animation: fadeoutT .5s;\n          animation: fadeoutT .5s;\n}\n/* 淡入-从上 */\n@-webkit-keyframes fadeinT {\n  0% {\n    opacity: 0;\n    -webkit-transform: translateY(-20px);\n  }\n  100% {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n  }\n}\n@keyframes fadeinT {\n  0% {\n    opacity: 0;\n    -webkit-transform: translateY(-20px);\n            transform: translateY(-20px);\n  }\n  100% {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n  }\n}\n/* 淡出-向上 */\n@-webkit-keyframes fadeoutT {\n  0% {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n  }\n  100% {\n    opacity: 0;\n    -webkit-transform: translateY(-20px);\n  }\n}\n@keyframes fadeoutT {\n  0% {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n  }\n  100% {\n    opacity: 0;\n    -webkit-transform: translateY(-20px);\n            transform: translateY(-20px);\n  }\n}\n", ""]);
 
       // exports
 
@@ -11271,7 +11271,7 @@ function _interopRequireDefault2(obj) { return obj && obj.__esModule ? obj : { d
     /* 14 */
     /***/function (module, exports) {
 
-      module.exports = "<div class=\"vc-table-container\">\n        <form class=\"search-area pull-left\" v-if=\"searchable\">\n            <label>筛选:</label>\n            <input type=\"text\" class=\"vc-table-filter\" name=\"query\" v-model=\"filterKey\" />\n        </form>\n        <div class=\"vc-table-title\" :style=\"{ 'text-align': titleAlign }\" :class=\"{'title-only': !searchable && !exportable }\">{{ title }}</div>\n        <div class=\"export-area pull-right\" v-if=\"exportable\">\n            <button class=\"btn btn-info btn-sm pull-right\" @click=\"exportSortArgs\">导出数据</button>\n        </div>\n        <table class=\"vc-table table table-striped table-hover\" :class=\"{ 'vc-table-fixed': tableFixed, 'title-only': (!searchable && !exportable) }\">\n            <thead v-if=\"showTableHeader\">\n                <tr @click=\"handleClick\">\n                    <th v-for=\"key in columns\"\n                        @click=\"sortBy(key)\"\n                        :class=\"{ active: sortKey == key }\">\n                        {{ key | zhCN }}\n                        <span class=\"arrow\" v-if=\"sortable\"\n                            :class=\"sortOrders[key] > 0 ? 'asc' : 'dsc'\">\n                        </span>\n                    </th>\n                </tr>\n            </thead>\n            <tbody>\n                <!-- 制作表格的关键，行循环，再填每一行的列, 不可用内置index做排序!故数据源必须自带index -->\n                <tr v-for=\"\n                    (index, entry) in data\n                    | filterBy filterKey \n                    | newOrderBy sortKey sortOrders[sortKey]\" \n                    transition=\"staggered\"\n                    stagger=\"5\"\n                >\n                    <td v-for=\"key in columns\">\n                        <span>{{ entry[key] }}</span>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>";
+      module.exports = "<div class=\"vc-table-container\">\n        <form class=\"search-area pull-left\" v-if=\"searchable\">\n            <label>{{ filterLabel }}:</label>\n            <div class=\"input-box\">\n                <input type=\"text\" class=\"vc-table-filter\" name=\"query\" v-model=\"filterKey\" />\n                <span class=\"clear-it glyphicon glyphicon-remove-circle\" @click=\"clearFilter\" aria-hidden=\"true\"></span>\n            </div>\n        </form>\n        <div class=\"vc-table-title\" :style=\"{ 'text-align': titleAlign }\" :class=\"{'title-only': !searchable && !exportable }\">{{ title }}</div>\n        <div class=\"export-area pull-right\" v-if=\"exportable\">\n            <button class=\"btn btn-info btn-sm pull-right\" @click=\"exportSortArgs\">导出数据</button>\n        </div>\n        <table class=\"vc-table table table-striped table-hover\" :class=\"{ 'vc-table-fixed': tableFixed, 'title-only': (!searchable && !exportable) }\">\n            <thead v-if=\"showTableHeader\">\n                <tr @click=\"handleClick\">\n                    <th v-for=\"key in columns\"\n                        @click=\"sortBy(key)\"\n                        :class=\"{ active: sortKey == key }\">\n                        {{ key | zhCN }}\n                        <span class=\"arrow\" \n                            v-if=\"sortable\"\n                            :class=\"sortOrders[key] > 0 ? 'asc' : 'dsc'\">\n                        </span>\n                    </th>\n                </tr>\n            </thead>\n            <tbody>\n                <!-- 制作表格的关键，行循环，再填每一行的列, 不可用内置index做排序!故数据源必须自带index -->\n                <tr v-for=\"\n                    (index, entry) in data\n                    | filterBy filterKey \n                    | newOrderBy sortKey sortOrders[sortKey]\" \n                    transition=\"staggered\"\n                    stagger=\"5\"\n                >\n                    <td v-for=\"key in columns\">\n                        <span>{{ entry[key] }}</span>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>";
 
       /***/
     },
@@ -11736,8 +11736,11 @@ function _interopRequireDefault2(obj) { return obj && obj.__esModule ? obj : { d
       // <template>
       //     <div class="vc-table-container">
       //         <form class="search-area pull-left" v-if="searchable">
-      //             <label>筛选:</label>
-      //             <input type="text" class="vc-table-filter" name="query" v-model="filterKey" />
+      //             <label>{{ filterLabel }}:</label>
+      //             <div class="input-box">
+      //                 <input type="text" class="vc-table-filter" name="query" v-model="filterKey" />
+      //                 <span class="clear-it glyphicon glyphicon-remove-circle" @click="clearFilter" aria-hidden="true"></span>
+      //             </div>
       //         </form>
       //         <div class="vc-table-title" :style="{ 'text-align': titleAlign }" :class="{'title-only': !searchable && !exportable }">{{ title }}</div>
       //         <div class="export-area pull-right" v-if="exportable">
@@ -11750,7 +11753,8 @@ function _interopRequireDefault2(obj) { return obj && obj.__esModule ? obj : { d
       //                         @click="sortBy(key)"
       //                         :class="{ active: sortKey == key }">
       //                         {{ key | zhCN }}
-      //                         <span class="arrow" v-if="sortable"
+      //                         <span class="arrow" 
+      //                             v-if="sortable"
       //                             :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
       //                         </span>
       //                     </th>
@@ -11775,11 +11779,6 @@ function _interopRequireDefault2(obj) { return obj && obj.__esModule ? obj : { d
       // </template>
 
       // <style lang="less">
-      // /**
-      //  * vc-table.less
-      //  * Mail   : pengrui@iwaimai.baidu.com
-      //  */
-
       // @table-bg: #fff;
       // @arrow-bg: #666;
       // @arrow-active-bg: #28d63d;
@@ -11793,6 +11792,26 @@ function _interopRequireDefault2(obj) { return obj && obj.__esModule ? obj : { d
       //         margin-bottom: 10px;
       //         z-index: 2;
       //         position: relative;
+      //     }
+      //     .search-area {
+      //         .input-box {
+      //             display: inline-block;
+      //             position: relative;
+
+      //             &:hover .clear-it {
+      //                 visibility: visible;
+      //             }
+
+      //             .clear-it {
+      //                 visibility: hidden;
+      //                 position: absolute;
+      //                 top: 50%;
+      //                 right: 6px;
+      //                 -webkit-transform: translateY(-50%);
+      //                 transform: translateY(-50%);
+      //                 opacity: .3;
+      //             }
+      //         }
       //     }
       //     .vc-table-title {
       //         position: absolute;
@@ -11876,7 +11895,7 @@ function _interopRequireDefault2(obj) { return obj && obj.__esModule ? obj : { d
       //     }
 
       //     td {
-      //         background-color: @table-bg;
+      //         // background-color: @table-bg;
       //         padding: 4px;
       //         position: relative;
 
@@ -12030,6 +12049,11 @@ function _interopRequireDefault2(obj) { return obj && obj.__esModule ? obj : { d
             type: Boolean,
             default: false
           },
+          filterKey: String,
+          filterLabel: {
+            type: String,
+            default: '筛选'
+          },
           sortable: {
             type: Boolean,
             default: false
@@ -12058,7 +12082,7 @@ function _interopRequireDefault2(obj) { return obj && obj.__esModule ? obj : { d
             sortOrders[key] = 1;
           });
           return {
-            filterKey: '',
+            // filterKey: '',
             sortKey: '',
             sortOrders: sortOrders
           };
@@ -12103,6 +12127,10 @@ function _interopRequireDefault2(obj) { return obj && obj.__esModule ? obj : { d
           }
         },
         methods: {
+          clearFilter: function clearFilter() {
+            this.filterKey = '';
+          },
+
           sortBy: function sortBy(key) {
             if (!this.sortable) return;
             this.sortKey = key;
@@ -13381,7 +13409,7 @@ new _vue2.default({
             name: "name",
             dataPlus: {},
 
-            columns: ['c0', 'c1', 'c2', 'c3', 'c4', 'c5', 'c7', 'c9'],
+            columns: ['c0', 'c1', 'c2', 'c3', 'c4', 'c5', 'c7', 'c8'],
             columnsMap: {
                 'c0': '中文0',
                 'c1': '中文1',
@@ -13395,12 +13423,14 @@ new _vue2.default({
                 'c9': '中文9'
             },
             data: {},
-            title: "表头已转换为中文, 按钮点击后请查看控制台",
+            title: "表格的标题",
             titleAlign: "center",
             showTableHeader: true,
             exportLabel: "导出",
             exportable: true,
             searchable: true,
+            filterKey: 'vim',
+            filterLabel: '过滤',
             sortable: true,
             tableFixed: false
         };
@@ -13415,7 +13445,7 @@ new _vue2.default({
             'c5': 2,
             'c6': 4,
             'c7': 7,
-            'c8': 5,
+            'c8': 'vim',
             'c9': 9
         }, {
             'c0': 1,
@@ -13426,7 +13456,7 @@ new _vue2.default({
             'c5': 5,
             'c6': 2,
             'c7': 7,
-            'c8': 1,
+            'c8': 'vue',
             'c9': 9
         }, {
             'c0': 2,
@@ -13437,7 +13467,7 @@ new _vue2.default({
             'c5': 7,
             'c6': 6,
             'c7': 8,
-            'c8': 4,
+            'c8': 'components',
             'c9': 9
         }, {
             'c0': 3,
@@ -13448,7 +13478,7 @@ new _vue2.default({
             'c5': 2,
             'c6': 7,
             'c7': 7,
-            'c8': 9,
+            'c8': 'vc-table',
             'c9': 9
         }, {
             'c0': 4,
@@ -13459,7 +13489,7 @@ new _vue2.default({
             'c5': 2,
             'c6': 1,
             'c7': 7,
-            'c8': 2,
+            'c8': 'mvvm',
             'c9': 9
         }, {
             'c0': 5,
@@ -13470,7 +13500,7 @@ new _vue2.default({
             'c5': 5,
             'c6': 6,
             'c7': 7,
-            'c8': 1,
+            'c8': 'bootstrap',
             'c9': 9
         }, {
             'c0': 6,
@@ -13481,7 +13511,7 @@ new _vue2.default({
             'c5': 7,
             'c6': 1,
             'c7': 7,
-            'c8': 5,
+            'c8': 'hhkb',
             'c9': 9
         }];
     },

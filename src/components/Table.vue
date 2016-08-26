@@ -1,8 +1,11 @@
 <template>
     <div class="vc-table-container">
         <form class="search-area pull-left" v-if="searchable">
-            <label>筛选:</label>
-            <input type="text" class="vc-table-filter" name="query" v-model="filterKey" />
+            <label>{{ filterLabel }}:</label>
+            <div class="input-box">
+                <input type="text" class="vc-table-filter" name="query" v-model="filterKey" />
+                <span class="clear-it glyphicon glyphicon-remove-circle" @click="clearFilter" aria-hidden="true"></span>
+            </div>
         </form>
         <div class="vc-table-title" :style="{ 'text-align': titleAlign }" :class="{'title-only': !searchable && !exportable }">{{ title }}</div>
         <div class="export-area pull-right" v-if="exportable">
@@ -15,7 +18,8 @@
                         @click="sortBy(key)"
                         :class="{ active: sortKey == key }">
                         {{ key | zhCN }}
-                        <span class="arrow" v-if="sortable"
+                        <span class="arrow" 
+                            v-if="sortable"
                             :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
                         </span>
                     </th>
@@ -40,11 +44,6 @@
 </template>
 
 <style lang="less">
-/**
- * vc-table.less
- * Mail   : pengrui@iwaimai.baidu.com
- */
-
 @table-bg: #fff;
 @arrow-bg: #666;
 @arrow-active-bg: #28d63d;
@@ -58,6 +57,26 @@
         margin-bottom: 10px;
         z-index: 2;
         position: relative;
+    }
+    .search-area {
+        .input-box {
+            display: inline-block;
+            position: relative;
+
+            &:hover .clear-it {
+                visibility: visible;
+            }
+
+            .clear-it {
+                visibility: hidden;
+                position: absolute;
+                top: 50%;
+                right: 6px;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+                opacity: .3;
+            }
+        }
     }
     .vc-table-title {
         position: absolute;
@@ -141,7 +160,7 @@ table.vc-table {
     }
 
     td {
-        background-color: @table-bg;
+        // background-color: @table-bg;
         padding: 4px;
         position: relative;
 
@@ -295,6 +314,11 @@ export default {
             type: Boolean,
             default: false
         },
+        filterKey: String,
+        filterLabel: {
+            type: String,
+            default: '筛选'
+        },
         sortable: {
             type: Boolean,
             default: false 
@@ -323,7 +347,7 @@ export default {
             sortOrders[key] = 1
         });
         return {
-            filterKey: '',
+            // filterKey: '',
             sortKey: '',
             sortOrders: sortOrders
         }
@@ -368,6 +392,9 @@ export default {
         }
     },
     methods: {
+        clearFilter () {
+            this.filterKey = ''
+        },
         sortBy: function(key) {
             if (!this.sortable) return
             this.sortKey = key;

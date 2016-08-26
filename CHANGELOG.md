@@ -1,13 +1,23 @@
 <h1 align="center">vc-table - @changelog</h1>
 
+## 0.4.1
+
+`2016-08-26`
+
+- 将 `filterKey` 拆分到 prop
+- 新增 `filterLabel` prop
+- 搜索框新增快捷删除控件
+- 更新demo
+
 ## 0.4.0
+
 `2016-08-25`
 
 - 重置为 `title`
 - 模板优化
 - 内置 `round`, `zhCN` filters
 - 处理`tableTitle` 在有无 `search-area`, `export-area` 时候的样式
-- 
+- 更新demo
 
 ## 0.3.0
 
