@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["VueComponentsName"] = factory();
+		exports["vcTable"] = factory();
 	else
-		root["VueComponentsName"] = factory();
+		root["vcTable"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -166,12 +166,12 @@ if (false) {
 var hotAPI = require("vue-hot-reload-api")
 hotAPI.install(require("vue"))
 if (!hotAPI.compatible) return
-var id = "-!babel!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Table.vue"
+var id = "-!babel!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Table.vue"
 hotAPI.createRecord(id, module.exports)
-module.hot.accept(["-!babel!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Table.vue","-!vue-html-loader!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=template&index=0!./Table.vue"], function () {
-var newOptions = require("-!babel!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Table.vue")
+module.hot.accept(["-!babel!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Table.vue","-!vue-html-loader!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=template&index=0!./Table.vue"], function () {
+var newOptions = require("-!babel!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=script&index=0!./Table.vue")
 if (newOptions && newOptions.__esModule) newOptions = newOptions.default
-var newTemplate = require("-!vue-html-loader!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=template&index=0!./Table.vue")
+var newTemplate = require("-!vue-html-loader!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=template&index=0!./Table.vue")
 hotAPI.update(id, newOptions, newTemplate)
 })
 })()
@@ -445,8 +445,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!./../../../node_modules/.0.21.0@css-loader/index.js!./../../../node_modules/.7.1.7@vue-loader/lib/style-rewriter.js?id=_v-263f320b&file=Table.vue!./../../../node_modules/.2.2.3@less-loader/index.js!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=style&index=0!./Table.vue", function() {
-			var newContent = require("!!./../../../node_modules/.0.21.0@css-loader/index.js!./../../../node_modules/.7.1.7@vue-loader/lib/style-rewriter.js?id=_v-263f320b&file=Table.vue!./../../../node_modules/.2.2.3@less-loader/index.js!./../../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=style&index=0!./Table.vue");
+		module.hot.accept("!!./../../node_modules/.0.21.0@css-loader/index.js!./../../node_modules/.7.1.7@vue-loader/lib/style-rewriter.js?id=_v-274ac388&file=Table.vue!./../../node_modules/.2.2.3@less-loader/index.js!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=style&index=0!./Table.vue", function() {
+			var newContent = require("!!./../../node_modules/.0.21.0@css-loader/index.js!./../../node_modules/.7.1.7@vue-loader/lib/style-rewriter.js?id=_v-274ac388&file=Table.vue!./../../node_modules/.2.2.3@less-loader/index.js!./../../node_modules/.7.1.7@vue-loader/lib/selector.js?type=style&index=0!./Table.vue");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -529,7 +529,7 @@ module.exports = function() {
 /* 14 */
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"vc-table-container\">\n        <form class=\"search-area pull-left\" v-if=\"searchable\">\n            <label>{{ filterLabel }}:</label>\n            <div class=\"input-box\">\n                <input type=\"text\" class=\"vc-table-filter\" name=\"query\" v-model=\"filterKey\" />\n                <span class=\"clear-it glyphicon glyphicon-remove-circle\" @click=\"clearFilter\" aria-hidden=\"true\"></span>\n            </div>\n        </form>\n        <div class=\"vc-table-title\" :style=\"{ 'text-align': titleAlign }\" :class=\"{'title-only': !searchable && !exportable }\">{{ title }}</div>\n        <div class=\"export-area pull-right\" v-if=\"exportable\">\n            <button class=\"btn btn-info btn-sm pull-right\" @click=\"exportSortArgs\">导出数据</button>\n        </div>\n        <table class=\"vc-table table table-striped table-hover\" :class=\"{ 'vc-table-fixed': tableFixed, 'title-only': (!searchable && !exportable) }\">\n            <thead v-if=\"showTableHeader\">\n                <tr @click=\"handleClick\">\n                    <th v-for=\"key in columns\"\n                        @click=\"sortBy(key)\"\n                        :class=\"{ active: sortKey == key }\">\n                        {{ key | zhCN }}\n                        <span class=\"arrow\" \n                            v-if=\"sortable\"\n                            :class=\"sortOrders[key] > 0 ? 'asc' : 'dsc'\">\n                        </span>\n                    </th>\n                </tr>\n            </thead>\n            <tbody>\n                <!-- 制作表格的关键，行循环，再填每一行的列, 不可用内置index做排序!故数据源必须自带index -->\n                <tr v-for=\"\n                    (index, entry) in data\n                    | filterBy filterKey \n                    | newOrderBy sortKey sortOrders[sortKey]\" \n                    transition=\"staggered\"\n                    stagger=\"5\"\n                >\n                    <td v-for=\"key in columns\">\n                        <span>{{ entry[key] }}</span>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>";
+module.exports = "<div class=\"vc-table-container\">\n        <form class=\"search-area pull-left\" v-if=\"searchable\">\n            <label>{{ filterLabel }}:</label>\n            <div class=\"input-box\">\n                <input type=\"text\" class=\"vc-table-filter\" name=\"query\" v-model=\"filterKey\" />\n                <span class=\"clear-it glyphicon glyphicon-remove-circle\" @click=\"clearFilter\" aria-hidden=\"true\"></span>\n            </div>\n        </form>\n        <div class=\"vc-table-title\" :class=\"{ 'title-only': !searchable && !exportable }\">{{ title }}</div>\n        <div class=\"export-area pull-right\" v-if=\"exportable\">\n            <button class=\"btn btn-info btn-sm pull-right\" @click=\"exportSortArgs\">导出数据</button>\n        </div>\n        <table class=\"vc-table table table-striped table-hover\" :class=\"{ 'vc-table-fixed': tableFixed, 'title-only': (!searchable && !exportable) }\">\n            <thead v-if=\"showTableHeader\">\n                <tr @click=\"handleClick\">\n                    <th v-for=\"key in columns\"\n                        @click=\"sortBy(key)\"\n                        :class=\"{ active: sortKey == key }\">\n                        {{ key | zhCN }}\n                        <span class=\"arrow\" \n                            v-if=\"sortable\"\n                            :class=\"sortOrders[key] > 0 ? 'asc' : 'dsc'\">\n                        </span>\n                    </th>\n                </tr>\n            </thead>\n            <tbody>\n                <!-- 制作表格的关键，行循环，再填每一行的列, 不可用内置index做排序!故数据源必须自带index -->\n                <tr v-for=\"\n                    (index, entry) in data\n                    | filterBy filterKey \n                    | newOrderBy sortKey sortOrders[sortKey]\" \n                    transition=\"staggered\"\n                    stagger=\"5\"\n                >\n                    <td v-for=\"key in columns\">\n                        <span>{{ entry[key] }}</span>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>";
 
 /***/ },
 /* 15 */
@@ -955,7 +955,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //                 <span class="clear-it glyphicon glyphicon-remove-circle" @click="clearFilter" aria-hidden="true"></span>
 //             </div>
 //         </form>
-//         <div class="vc-table-title" :style="{ 'text-align': titleAlign }" :class="{'title-only': !searchable && !exportable }">{{ title }}</div>
+//         <div class="vc-table-title" :class="{ 'title-only': !searchable && !exportable }">{{ title }}</div>
 //         <div class="export-area pull-right" v-if="exportable">
 //             <button class="btn btn-info btn-sm pull-right" @click="exportSortArgs">导出数据</button>
 //         </div>
@@ -1234,6 +1234,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var COMPONENT_NS = 'TABLE';
 
 exports.default = {
+    name: 'vc-table',
     props: {
         name: {
             type: String,

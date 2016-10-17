@@ -7,7 +7,7 @@
                 <span class="clear-it glyphicon glyphicon-remove-circle" @click="clearFilter" aria-hidden="true"></span>
             </div>
         </form>
-        <div class="vc-table-title" :style="{ 'text-align': titleAlign }" :class="{'title-only': !searchable && !exportable }">{{ title }}</div>
+        <div class="vc-table-title" :class="{ 'title-only': !searchable && !exportable }">{{ title }}</div>
         <div class="export-area pull-right" v-if="exportable">
             <button class="btn btn-info btn-sm pull-right" @click="exportSortArgs">导出数据</button>
         </div>
@@ -286,6 +286,7 @@ table.vc-table {
 const COMPONENT_NS = 'TABLE'
 
 export default {
+    name: 'vc-table',
     props: {
         name: {
             type: String,

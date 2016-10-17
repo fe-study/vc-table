@@ -1,3 +1,4 @@
-import vcTable from './components/Table'
+import vcTable from './Table'
 
-module.exports = vcTable
+export default vcTable
+export { vcTable }
